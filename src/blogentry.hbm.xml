@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 5.3//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.sziffer.model.blog.BlogEntry" table="categories">
+        <id name="id">
+            <generator class="assigned"/>
+        </id>
+
+        <property name="blogEntryDate"/>
+        <property name="name"/>
+        <property name="longName"/>
+        <set name="comments">
+            <key>
+                <column name="comments"/>
+            </key>
+            <one-to-many class="com.sziffer.model.blog.BlogEntryComment"/>
+        </set>
+
+    </class>
+
+</hibernate-mapping>
